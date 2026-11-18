@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+db:
+image: postgres:18
+container_name: escom_prestamos_db
+environment:
+POSTGRES_DB: prestamos_escom
+POSTGRES_USER: postgres
+POSTGRES_PASSWORD: password_ejemplo_seguro
+ports:
+- "5432:5433"
+volumes:
+- pgdata:/var/lib/postgresql/data
+- ./migraciones:/docker-entrypoint-initdb.d/
+restart: always
+
+volumes:
+pgdata:
+
+
